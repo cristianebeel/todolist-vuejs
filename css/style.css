@@ -1,0 +1,83 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+/* RESET
+------------------------------------------- */
+*, html{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body{
+  width: 100%;
+  height: 100%;
+  font: 16px/2 Roboto, sans-serif;
+  line-height: 2;
+  text-align: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    display: block;
+    font-size: 2rem;
+    margin: 2rem 0;
+    color: #333;
+}
+
+#app{
+    margin: 0 15rem;
+    text-align: left;
+}
+
+label{
+    display: block;
+    font-size: 1.1rem;
+}
+
+input, button, select{
+    font-size: 1.2rem;
+    border-radius: 10px;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+}
+
+input{
+    width: 70%;
+}
+
+select{
+    width: 14%;
+}
+
+button{
+    width: 15%;
+}
+
+ul{
+    list-style-type: none;
+}
+
+li{
+    display: flex;
+    vertical-align: middle;
+    padding: 0.5rem 0;
+}
+
+li:nth-child(even){
+    background-color: #ddd;
+}
+
+li:nth-child(odd){
+    background-color: #bbb;
+}
+
+.material-icons{
+    padding: 0.2rem;
+    justify-content: center;
+}

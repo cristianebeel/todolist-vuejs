@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Tarefas</h1>
+        <div id="app">
+            <label for="title">Digite a tarefa que deseja adicionar à lista</label>
+            <input id="title" class="inputLabel" v-model="title"
+                @keypress.enter="addItem" :class="{'border-warn': !title}"/>
+            <select name="category" id="category">
+                <option value="default" selected disabled>Categoria</option>
+                <option value="personal">Pessoal</option>
+                <option value="important">Importante</option>
+                <option value="taks">Tarefa</option>
+            </select>
+            <button :disabled="isDisabled" @click="addItem">Adicionar</button>
+            <div id="tasks">
+                <ul>
+                    <li v-for="item of taskList">
+                        <span class="material-icons md-18">radio_button_unchecked</span>
+                        {{ item.title }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        const vm = new Vue({
+        el: '#app',
+        data(){
+            return{
+                title: '',
+                taskList: []
+            }
+        },
+        computed:{
+            isDisabled(){
+                if(!this.title) return true
+                else return false
+            }
+        },
+        methods:{
+            addItem(){
+                this.taskList.push({
+                    title: this.title
+                })
+                this.title=''
+            }
+        }
+    })
+    </script>
+</body>
+</html>
